@@ -1,4 +1,4 @@
-var webpack = require("webpack"),
+const webpack = require("webpack"),
     path = require("path"),
     fileSystem = require("fs"),
     env = require("./utils/env"),
@@ -8,22 +8,22 @@ var webpack = require("webpack"),
     WriteFilePlugin = require("write-file-webpack-plugin");
 
 // load the secrets
-var alias = {};
+const alias = {};
 
-var secretsPath = path.join(__dirname, ("secrets." + env.NODE_ENV + ".js"));
+const secretsPath = path.join(__dirname, ("secrets." + env.NODE_ENV + ".js"));
 
-var fileExtensions = ["jpg", "jpeg", "png", "gif", "eot", "otf", "svg", "ttf", "woff", "woff2"];
+const fileExtensions = ["jpg", "jpeg", "png", "gif", "eot", "otf", "svg", "ttf", "woff", "woff2"];
 
 if (fileSystem.existsSync(secretsPath)) {
   alias["secrets"] = secretsPath;
 }
 
-var options = {
+const options = {
   entry: {
     options: path.join(__dirname, "src", "js", "options.js"),
     "content-extractor": path.join(__dirname, "src", "js", "content-extractor.js"),
     "content-main": path.join(__dirname, "src", "js", "content-main.js"),
-    "search-box-creater": path.join(__dirname, "src", "js", "search-box-creater.js"),
+    "search-box-creator": path.join(__dirname, "src", "js", "search-box-creator.js"),
     background: path.join(__dirname, "src", "js", "background.js")
   },
   output: {
@@ -31,7 +31,7 @@ var options = {
     filename: "[name].js"
   },
   chromeExtensionBoilerplate: {
-    notHotReload: ["content-extractor", "content-main", "search-box-creater"]
+    notHotReload: ["content-extractor", "content-main", "search-box-creator"]
   },
   module: {
     rules: [
