@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["content-main.js", "content-extractor.js", "search-box-creater.js"],
+      "js": ["content-main.js", "content-extractor.js", "search-box-creator.js"],
       "run_at": "document_end"
     }
   ],
